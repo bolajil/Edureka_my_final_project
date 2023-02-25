@@ -1,4 +1,0 @@
-FROM openjdk:11
-EXPOSE 8080
-ADD target/docker-integration-ABCtechnologies docker-integration-ABCtechnologies
-ENTRYPOINT ["mvn" , "-war" , "/ABCtechnologies-1.0.war"]
