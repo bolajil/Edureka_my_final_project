@@ -60,7 +60,5 @@
 				</executions>
 			</plugin>
 		</plugins>
-	</build>
-	     <finalName>docker-integration-ABCtechnologies</finalName>
 	</build>	     
 </project>
