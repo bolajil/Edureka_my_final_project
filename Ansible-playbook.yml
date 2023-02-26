@@ -11,10 +11,10 @@
         chdir: /dockerimages
 
     - name: create tag to image
-      command: docker tag dockerimages bolajil/dockerimages
+      command: docker tag tomcatwebserver bolajil/tomcatwebserver
 
     - name: push image on to dockerhub
-      command: docker push bolajil/dockerimages
+      command: docker push bolajil/tomcatwebserver
 
     - name: copy file to destination
       copy:
