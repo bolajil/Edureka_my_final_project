@@ -1,0 +1,23 @@
+---
+- hosts: all
+  become: yes
+
+  tasks:
+
+    - name: stop current running container
+      command: docker stop tomcatwebserver
+      ignore_errors: yes
+
+    - name: remove stopped docker container
+      command: docker rm tomcatwebserver
+      ignore_errors: yes
+
+    - name: remove current docker image
+      command: docker rmi bolajil/tomcatwebserver:1.0
+      ignore_errors: yes
+
+    - name: pull docker image from dockerhub
+      command: docker pull bolajil/tomcatwebserver:1.0
+
+    - name: creating docker container using tomcastwebserver
+      command: docker run -d --name tomcatwebserver -p 8888:8080 bolajil/tomcatwebserver:1.0
