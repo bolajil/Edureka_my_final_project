@@ -5,16 +5,21 @@
   tasks:
 
     - name: create docker image using war file
-      command: docker build -t simple-devops-image:latest .
+      command: docker build -t tomcatwebbserver:1.0 .
+      command: docker run -itd --name tomcatwebbserver -p 8888:8080 tomcatwebbserver:1.0
       args:
-        chdir: /opt/docker
+        chdir: /dockerimages
 
     - name: create tag to image
-      command: docker tag simple-devops-image ameintu/simple-devops-image
+      command: docker tag dockerimages bolajil/dockerimages
 
     - name: push image on to dockerhub
-      command: docker push ameintu/simple-devops-image
+      command: docker push bolajil/dockerimages
 
-    - name: remove docker images from ansible server
-      command: docker rmi tomcat simple-devops-image:latest ameintu/simple-devops-image
-      ignore_errors: yes
+    - name: copy file to destination
+      copy:
+        src: /var/lib/jenkins/workspace/package/target/ABCtechnologies-1.0.war
+        dest: /dockerimages
+      tags:
+        - simple_copy
+      
