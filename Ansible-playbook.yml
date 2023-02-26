@@ -22,4 +22,8 @@
         dest: /dockerimages
       tags:
         - simple_copy
+        
+    - name: remove docker images from ansible server
+      command: docker rmi tomcat tomcatwebserver:1.0 bolajil/tomcatwebserver
+      ignore_errors: yes
       
