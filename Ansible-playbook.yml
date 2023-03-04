@@ -6,12 +6,12 @@
 
     - name: create docker image using war file
       command: docker build -t tomcatwebbserver:1.0 .
-      command: docker run -itd --name tomcatwebbserver -p 8888:8080 tomcatwebbserver:1.0
+      command: docker run -itd --name tomcatwebbserver -p 8888:8080 tomcatwebbserver:latest
       args:
         chdir: dockerimages
 
     - name: create tag to image
-      command: docker tag tomcatwebserver bolajil/tomcatwebserver
+      command: docker tag tomcatwebserver:latest bolajil/tomcatwebserver
 
     - name: push image on to dockerhub
       command: docker push bolajil/tomcatwebserver
@@ -24,6 +24,6 @@
         - simple_copy
         
     - name: remove docker images from ansible server
-      command: docker rmi tomcat tomcatwebserver:1.0 bolajil/tomcatwebserver
+      command: docker rmi tomcat tomcatwebserver:latest bolajil/tomcatwebserver
       ignore_errors: yes
       
