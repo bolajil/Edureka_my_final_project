@@ -20,4 +20,4 @@
       command: docker pull bolajil/tomcatwebserver:1
 
     - name: creating docker container using tomcastwebserver
-      command: docker run -d --name tomcatwebserver -p 8888:8080 bolajil/tomcatwebserver:1
+      command: docker run -d --name tomcatwebserver -p 8090:8080 bolajil/tomcatwebserver:1
