@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: tomcatwebserver
+  name: tomcatwebserver
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: tomcatwebserver
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: tomcatwebserver
+    spec:
+      containers:
+      - image: bolajil/tomcatwebserver:latest
+        imagePullPolicy: Always
+        name: tomcatwebserver
+
