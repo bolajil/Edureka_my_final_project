@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: tomcatwebserver
+  name: tomcatwebserver
+spec:
+  ports:
+  - name: http
+    nodePort: 30001
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: tomcatwebserver
+  type: NodePort
